@@ -1,8 +1,8 @@
 import csv
 import sys
 
-from ims.ims import IMS
-from ims.person import Person
+from ims import IMS
+from ims import Person
 
 data = IMS(sys.argv[1])
 with open('persons.csv', 'w', newline='') as csv_file:
