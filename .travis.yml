@@ -1,0 +1,18 @@
+language: minimal
+
+install: skip
+script:
+  - rm -rf .git
+  - rm -rf .idea
+  - rm .gitignore
+  - rm .travis.yml
+  - zip -0 -r ../ims-to-csv-$TRAVIS_TAG.zip .
+
+deploy:
+  skip_cleanup: true
+  provider: releases
+  token: $GITHUB_TOKEN
+  file: ../ims-to-csv*.zip
+  file_glob: true
+  on:
+    tags: true
